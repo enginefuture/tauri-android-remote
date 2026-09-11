@@ -89,7 +89,16 @@ fn execute(a: Args) -> Result<(), String> {
             run("adb", &["-s", &ep, "get-state"])
         }
         Action::Disconnect => run("adb", &["disconnect", &ep]),
-        Action::Screen => run("scrcpy", &["-s", &ep]),
+        Action::Screen => run(
+            "scrcpy",
+            &[
+                "-s",
+                &ep,
+                "--force-adb-forward",
+                "--no-audio",
+                "--max-size=1280",
+            ],
+        ),
         Action::Logs => run("adb", &["-s", &ep, "logcat"]),
         Action::Shell => run("adb", &["-s", &ep, "shell"]),
         Action::Install { apk } => {
@@ -103,6 +112,7 @@ fn execute(a: Args) -> Result<(), String> {
                     "-s",
                     &ep,
                     "install",
+                    "--no-streaming",
                     "-r",
                     p.to_str().ok_or("文件名必须为 UTF-8")?,
                 ],

@@ -37,6 +37,9 @@ fn dispatch_verifies_state_and_never_uses_shell_input() {
     assert!(!run("100.64.0.10;id", "screen").status.success());
     assert_eq!(fs::read_to_string(&log).unwrap(), "");
     assert!(run("100.64.0.10", "screen").status.success());
-    assert_eq!(fs::read_to_string(&log).unwrap(), "-s\n100.64.0.10:39001\n");
+    assert_eq!(
+        fs::read_to_string(&log).unwrap(),
+        "-s\n100.64.0.10:39001\n--force-adb-forward\n--no-audio\n--max-size=1280\n"
+    );
     fs::remove_dir_all(dir).unwrap();
 }

@@ -18,7 +18,7 @@ impl Connection {
     pub fn commands(&self) -> Result<String, String> {
         let ep = self.endpoint()?;
         Ok(format!(
-            "adb connect {ep}\nadb -s {ep} get-state\nscrcpy -s {ep}"
+            "adb connect {ep}\nadb -s {ep} get-state\nscrcpy -s {ep} --force-adb-forward --no-audio --max-size=1280"
         ))
     }
 }

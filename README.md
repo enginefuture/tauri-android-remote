@@ -12,7 +12,7 @@ An open-source **Tauri 2 + Rust Android companion** for connecting an authorized
 4. 执行 `adb pair <手机的Tailscale-IP>:<配对端口>`，按提示输入配对码。
 5. 回到无线调试主页面，查看**连接端口**，执行 `adb connect <手机的Tailscale-IP>:<连接端口>`。
 6. 执行 `adb -s <手机的Tailscale-IP>:<连接端口> get-state`，确认返回 `device`。
-7. 安装本项目 APK，打开应用核对设备信息、生成后续连接命令。用 `scrcpy -s <手机的Tailscale-IP>:<连接端口>` 看屏幕和操作手机。
+7. 安装本项目 APK，打开应用核对设备信息、生成后续连接命令。用 `scrcpy -s <手机的Tailscale-IP>:<连接端口> --force-adb-forward --no-audio --max-size=1280` 看屏幕和操作手机。
 
 配对端口和连接端口不同。Tailscale 不会自动开启 ADB，也不能保证所有厂商 ROM 上无线调试端口均可从 VPN 访问。首次可先在同一 Wi-Fi 完成配对，再验证 Tailscale 地址。不要依赖跨 tailnet 的 mDNS 自动发现。
 
@@ -32,6 +32,8 @@ android-remote --ip 100.64.0.10 --port 39001 disconnect
 ```
 
 Example addresses/ports above are placeholders. `pair` asks for the code interactively through adb; codes are not stored. All other commands use the connection port. `screen`, `install`, `logs` and `shell` require an existing connection. Ctrl-C stops interactive sessions. `doctor` checks adb availability, TCP reachability (4-second timeout), then ADB device state. `connect` verifies `get-state` because adb may return exit code 0 even when connection fails.
+
+`screen` uses ADB forward mode, disables audio and limits the longest video edge to 1280 pixels. This configuration produced video on the tested Realme GT8 Pro where the default reverse tunnel received no video headers. `install` uses `--no-streaming`, which succeeded after the vendor rejected the initial streamed install.
 
 The CLI uses argument arrays, not a shell. It accepts only IPv4 addresses within `100.64.0.0/10`; this range check is not proof of Tailscale identity. It finds adb via `ANDROID_HOME`, the standard macOS SDK path, or PATH. Override with `REMOTE_ADB_BIN` / `REMOTE_SCRCPY_BIN`. IPv6 and MagicDNS names are not yet supported.
 
