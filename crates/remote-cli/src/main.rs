@@ -51,15 +51,16 @@ fn binary(name: &str) -> PathBuf {
     name.into()
 }
 fn run(name: &str, args: &[&str]) -> Result<(), String> {
-    let status = Command::new(binary(name))
-        .args(args)
-        .status()
-        .map_err(|e| {
-            format!(
-                "无法运行 {name}: {e}。安装工具或设置 REMOTE_{}_BIN",
-                name.to_uppercase()
-            )
-        })?;
+    let mut command = Command::new(binary(name));
+    if name == "scrcpy" {
+        command.env("ADB", binary("adb"));
+    }
+    let status = command.args(args).status().map_err(|e| {
+        format!(
+            "无法运行 {name}: {e}。安装工具或设置 REMOTE_{}_BIN",
+            name.to_uppercase()
+        )
+    })?;
     if status.success() {
         Ok(())
     } else {
