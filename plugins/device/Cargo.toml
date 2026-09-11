@@ -1,0 +1,11 @@
+[package]
+name="tauri-plugin-device"
+version="0.1.0"
+edition="2021"
+license="MIT"
+links="tauri-plugin-device"
+[dependencies]
+tauri="2"
+serde_json="1"
+[build-dependencies]
+tauri-plugin={version="2",features=["build"]}

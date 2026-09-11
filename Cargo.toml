@@ -1,0 +1,3 @@
+[workspace]
+members=["crates/remote-core","crates/remote-cli","src-tauri","plugins/device"]
+resolver="2"

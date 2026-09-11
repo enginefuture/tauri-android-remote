@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #101614;
+  color: #edf3ec;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+main {
+  max-width: 540px;
+  margin: auto;
+  padding: calc(24px + env(safe-area-inset-top)) 22px
+    calc(36px + env(safe-area-inset-bottom));
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+small {
+  display: block;
+  font-weight: 400;
+  color: #9daaa1;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.mark {
+  display: grid;
+  place-items: center;
+  background: #cef789;
+  color: #142016;
+  border-radius: 13px;
+  width: 43px;
+  height: 43px;
+  font-size: 28px;
+}
+.badge {
+  margin-left: auto;
+  border: 1px solid #435040;
+  border-radius: 20px;
+  padding: 3px 9px;
+  font-size: 10px;
+  color: #cef789;
+}
+.hero {
+  padding: 37px 0 21px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #cef789;
+}
+h1 {
+  font-size: 43px;
+  letter-spacing: -2px;
+  line-height: 1.2;
+  margin: 18px 0;
+}
+p {
+  color: #aebbaf;
+  margin: 12px 0;
+}
+h2 {
+  font-size: 17px;
+  margin: 0 0 13px;
+  color: #edf3ec;
+}
+.card {
+  padding: 21px;
+  border: 1px solid #334038;
+  background: #1b251f;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.row h2 {
+  margin: 0;
+}
+.hint {
+  font-size: 12px;
+  color: #9ba99c;
+}
+button {
+  border: 1px solid #56644f;
+  background: transparent;
+  color: #e3efde;
+  padding: 11px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+  min-height: 44px;
+}
+.primary {
+  background: #cef789;
+  color: #182414;
+  border: 0;
+  font-weight: 700;
+  width: 100%;
+  margin: 10px 0;
+}
+.quiet {
+  border: 0;
+  padding: 5px 10px;
+  color: #cef789;
+}
+.step {
+  color: #cef789;
+  font-size: 12px;
+  margin-right: 10px;
+}
+label {
+  display: block;
+  font-size: 12px;
+  color: #b1bfb0;
+  margin: 16px 0;
+}
+input {
+  display: block;
+  margin-top: 7px;
+  width: 100%;
+  border: 1px solid #46513f;
+  border-radius: 10px;
+  background: #111b15;
+  color: white;
+  font: inherit;
+  font-size: 16px;
+  padding: 12px;
+}
+input:focus,
+button:focus-visible {
+  outline: 2px solid #cef789;
+  outline-offset: 3px;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  color: #d6f6b0;
+  background: #101a13;
+  padding: 14px;
+  border-radius: 10px;
+  user-select: text;
+}
+.subtle {
+  background: transparent;
+}
+.subtle p {
+  font-size: 13px;
+}
+footer {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 10px;
+  color: #758976;
+  padding: 16px;
+}
+#notice {
+  font-size: 13px;
+  color: #cef789;
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,11 @@
+[package]
+name="remote-cli"
+version="0.1.0"
+edition="2021"
+license="MIT"
+[[bin]]
+name="android-remote"
+path="src/main.rs"
+[dependencies]
+remote-core={path="../remote-core"}
+clap={version="4",features=["derive"]}
