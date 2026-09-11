@@ -79,7 +79,7 @@ Android Tauri UI -> Rust validation -> Kotlin Android settings/status adapter
 - Optional USB fallback: authorize this Mac over USB, then `adb -s <USB_SERIAL> tcpip 5555`; connect through Tailscale. This may listen on LAN interfaces too, and may reset after reboot. Tailscale policy does not protect direct LAN access. Prefer wireless-debugging TLS pairing.
 - Screen control is provided by scrcpy, not root access. Protected content and manufacturer input restrictions may limit functionality.
 
-See [SECURITY.md](SECURITY.md) and [validation checklist](docs/VALIDATION.md).
+See [SECURITY.md](SECURITY.md), [validation checklist](docs/VALIDATION.md), and the [小红书真机发布操作手册](docs/XIAOHONGSHU_WORKFLOW.md).
 
 References: [Android ADB](https://developer.android.com/tools/adb), [Tauri mobile plugins](https://v2.tauri.app/develop/plugins/develop-mobile/), [scrcpy](https://github.com/Genymobile/scrcpy).
 
